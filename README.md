@@ -1,4 +1,9 @@
-# Why is 
+# Why is object empty
 
-docker-compose -f docker-compose.yml build app && docker-compose -f docker-compose.yml up -d app
-docker-compose -f docker-compose.yml build chrome && docker-compose -f docker-compose.yml up -d chrome
+```bash
+# Build and run container in a deamon mode
+$ docker-compose -f docker-compose.yml up -d
+```
+[Demo Time](https://why-is-object-empty-fzkidpjxhx.now.sh/)
+
+[Why!?](https://github.com/daliborgogic/why-is-object-empty/blob/master/index.js#L62)
