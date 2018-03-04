@@ -10,10 +10,10 @@ RUN mkdir /app
 WORKDIR /app
 
 COPY package.json /app
-RUN npm i --production
+RUN npm i
 
 COPY ./ /app
 
 EXPOSE 3000
 
-CMD ["node_modules/.bin/micro"]
+CMD ["node_modules/.bin/micro-dev"]

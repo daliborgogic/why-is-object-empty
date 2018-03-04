@@ -18,87 +18,13 @@ module.exports = async (req, res) => {
     const page = await browser.newPage()
     await page.goto('https://daliborgogic.com')
 
-    const t = await page.evaluate(_ => {
-      let paints = {}
-
-      performance.getEntriesByType('paint').map(_ =>  paints[_.name] = _.startTime)
-
-      const { 
-        name,
-        entryType,
-        startTime,
-        duration,
-        initiatorType,
-        nextHopProtocol,
-        workerStart,
-        redirectStart,
-        redirectEnd,
-        fetchStart,
-        domainLookupStart,
-        domainLookupEnd,
-        connectStart,
-        connectEnd,
-        secureConnectionStart,
-        requestStart,
-        responseStart,
-        responseEnd,
-        transferSize,
-        encodedBodySize,
-        decodedBodySize,
-        serverTiming,
-        unloadEventStart,
-        unloadEventEnd,
-        domInteractive,
-        domContentLoadedEventStart,
-        domContentLoadedEventEnd,
-        domComplete,
-        loadEventStart,
-        loadEventEnd,
-        type,
-        redirectCount
-      } = performance.getEntriesByType('navigation')[0]
-
-      return { 
-        whyIsObjectEmpty: performance.getEntriesByType('navigation')[0], // why!?
-        name,
-        entryType,
-        startTime,
-        duration,
-        initiatorType,
-        nextHopProtocol,
-        workerStart,
-        redirectStart,
-        redirectEnd,
-        fetchStart,
-        domainLookupStart,
-        domainLookupEnd,
-        connectStart,
-        connectEnd,
-        secureConnectionStart,
-        requestStart,
-        responseStart,
-        responseEnd,
-        transferSize,
-        encodedBodySize,
-        decodedBodySize,
-        serverTiming,
-        unloadEventStart,
-        unloadEventEnd,
-        domInteractive,
-        domContentLoadedEventStart,
-        domContentLoadedEventEnd,
-        domComplete,
-        loadEventStart,
-        loadEventEnd,
-        type,
-        redirectCount,
-        paints
-      }
-    })
+    const navigation = JSON.parse(await page.evaluate(() => {
+        return JSON.stringify(performance.getEntriesByType('navigation')[0])
+    }))
 
     await browser.close()
 
-    return t
+    return navigation
   }
   const results = await timings()
   return [results]
