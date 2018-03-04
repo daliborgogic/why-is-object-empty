@@ -60,6 +60,8 @@ module.exports = async (req, res) => {
 
       return { 
         whyIsObjectEmpty: performance.getEntriesByType('navigation')[0], // why!?
+        // There were some changes in result serialization before the puppeter@0.13.0
+        itsNotEmpty: JSON.stringify(performance.getEntriesByType('navigation')[0]),
         name,
         entryType,
         startTime,
