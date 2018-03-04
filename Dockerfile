@@ -16,4 +16,4 @@ COPY ./ /app
 
 EXPOSE 3000
 
-CMD ["node_modules/.bin/micro-dev"]
+CMD ["node_modules/.bin/micro"]

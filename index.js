@@ -100,7 +100,7 @@ module.exports = async (req, res) => {
 
     return t
   }
-
-  return await timings()
+  const results = await timings()
+  return [results]
 }
 
