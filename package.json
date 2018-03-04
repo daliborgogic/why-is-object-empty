@@ -1,0 +1,15 @@
+{
+  "name": "why-is-object-empty",
+  "version": "1.0.0",
+  "description": "###",
+  "scripts": {
+    "start": "node_midules/.bin/micro-dev index.js"
+  },
+  "dependencies": {
+    "puppeteer": "^0.13.0",
+    "micro": "^9.1.0"
+  },
+  "devDependencies": {
+    "micro-dev": "^2.2.0"
+  }
+}
