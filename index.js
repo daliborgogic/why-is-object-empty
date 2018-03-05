@@ -18,7 +18,7 @@ module.exports = async (req, res) => {
     const page = await browser.newPage()
     await page.goto('https://daliborgogic.com')
 
-    // There were some changes in result serialization before the pupeteer@0.13
+    // There were some changes in result serialization before the puppeteer@0.13
     const navigation = JSON.parse(await page.evaluate(() => {
       return JSON.stringify(performance.getEntriesByType('navigation')[0])
     }))
